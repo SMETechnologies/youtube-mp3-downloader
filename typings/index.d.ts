@@ -26,22 +26,31 @@ declare module YoutubeMp3Downloader {
       runtime: number;
       delta: number;
       speed: number;
-    }
+    };
   }
 }
 
 declare class YoutubeMp3Downloader {
-  constructor(options: YoutubeMp3Downloader.IYoutubeMp3DownloaderOptions)
+  constructor(options: YoutubeMp3Downloader.IYoutubeMp3DownloaderOptions);
 
   cleanFileName(fileName: string): string;
   download(videoId: string, fileName?: string): void;
-  performDownload(task, callback: (errorNessage?: string, output?: any) => void): void;
+  performDownload(
+    task,
+    callback: (errorNessage?: string, output?: any) => void
+  ): void;
 
-  on(event: 'queueSize', listener: (total : number) => void): this;
-  on(event: 'error' | 'finished', listener: (err: any, data: any) => void): this;
-  on(event: 'progress', listener: (video: YoutubeMp3Downloader.IVideoTask) => void): this;
+  on(event: 'queueSize', listener: (total: number) => void): this;
+  on(
+    event: 'error' | 'finished',
+    listener: (err: any, data: any) => void
+  ): this;
+  on(
+    event: 'progress',
+    listener: (video: YoutubeMp3Downloader.IVideoTask) => void
+  ): this;
 }
 
-declare module 'youtube-mp3-downloader' {
+declare module '@tdkrage-oss/youtube-mp3-downloader' {
   export = YoutubeMp3Downloader;
 }
