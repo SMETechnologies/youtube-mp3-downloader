@@ -1,5 +1,5 @@
 # Use an official Node.js runtime as a parent image
-FROM node:18-alpine
+FROM node:lts-alpine
 
 # Install ffmpeg
 RUN apk update && apk add ffmpeg
